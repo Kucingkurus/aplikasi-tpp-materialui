@@ -24,6 +24,8 @@ import LocationOn from "@material-ui/icons/LocationOn";
 import Notifications from "@material-ui/icons/Notifications";
 import Kucing from "@material-ui/icons/Unarchive";
 import Language from "@material-ui/icons/Language";
+
+
 // core components/views for Admin layout
 import DashboardPage from "views/Dashboard/Dashboard.js";
 import UserProfile from "views/UserProfile/UserProfile.js";
@@ -32,7 +34,7 @@ import Typography from "views/Typography/Typography.js";
 import Icons from "views/Icons/Icons.js";
 import Maps from "views/Maps/Maps.js";
 import NotificationsPage from "views/Notifications/Notifications.js";
-import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.js";
+// import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.js";
 // core components/views for RTL layout
 import RTLPage from "views/RTLPage/RTLPage.js";
 
@@ -46,8 +48,8 @@ const dashboardRoutes = [
     layout: "/admin",
   },
   {
-    path: "/user",
-    name: "Buku Catatan Pabean (BCP)",
+    path: "/bcp",
+    name: "Buku Catatan Pabean",
     rtlName: "ملف تعريفي للمستخدم",
     icon: Person,
     component: UserProfile,
@@ -101,23 +103,99 @@ const dashboardRoutes = [
         component: TableList,
         layout: "/admin",
       },
+      {
+        path: "/btd/anjing",
+        name: "anjing BTD",
+        rtlName: "قائمة الجدول",
+        icon: "content_paste",
+        component: TableList,
+        layout: "/admin",
+      },
     ],
   },
   {
-    path: "/typography",
+    path: "/bdn",
     name: "BDN",
     rtlName: "طباعة",
     icon: LibraryBooks,
     component: Typography,
     layout: "/admin",
+    children: [
+      {
+        path: "/bdn/tambah",
+        name: "Tambah BDN",
+        rtlName: "طباعة",
+        icon: LibraryBooks,
+        component: Typography,
+        layout: "/admin",
+      },
+      {
+        path: "/bdn/daftar",
+        name: "Daftar BDN",
+        rtlName: "طباعة",
+        icon: LibraryBooks,
+        component: Kucing,
+        layout: "/admin",
+      },
+      {
+        path: "/bdn/penyerahan",
+        name: "Penyerahan BDN",
+        rtlName: "طباعة",
+        icon: LibraryBooks,
+        component: Typography,
+        layout: "/admin",
+      },
+      {
+        path: "/bdn/serah-terima-cacah",
+        name: "Serah Terima & Pencacahan",
+        rtlName: "طباعة",
+        icon: LibraryBooks,
+        component: Typography,
+        layout: "/admin",
+      },
+      {
+        path: "/bdn/tindak-lanjut",
+        name: "Tindak Lanjut BDN",
+        rtlName: "طباعة",
+        icon: LibraryBooks,
+        component: Typography,
+        layout: "/admin",
+      },
+      {
+        path: "/bdn/penyelesaian",
+        name: "Penyelesaian BDN",
+        rtlName: "طباعة",
+        icon: LibraryBooks,
+        component: Typography,
+        layout: "/admin",
+      },
+    ]
   },
   {
-    path: "/icons",
+    path: "/bmn",
     name: "BMN",
     rtlName: "الرموز",
     icon: BubbleChart,
     component: Icons,
     layout: "/admin",
+    children: [
+      {
+        path: "/bmn/daftar",
+        name: "Daftar BMN",
+        rtlName: "طباعة",
+        icon: LibraryBooks,
+        component: Typography,
+        layout: "/admin",
+      },
+      {
+        path: "/bmn/persetujuan-peruntukan",
+        name: "Persetujuan Peruntukan BMN",
+        rtlName: "طباعة",
+        icon: LibraryBooks,
+        component: Typography,
+        layout: "/admin",
+      },
+    ],
   },
   {
     path: "/laporan-tpp",
@@ -128,14 +206,38 @@ const dashboardRoutes = [
     layout: "/admin",
     children: [
       {
-        path: "/laporan-tpp/kucing-kurus",
-        name: "kucing kurus",
+        path: "/laporan-tpp/btd",
+        name: "Laporan BTD",
         rtlName: "قائمة الجدول",
         icon: "content_paste",
         component: TableList,
         layout: "/admin",
       },
-    ]
+      {
+        path: "/laporan-tpp/bdn",
+        name: "Laporan BDN",
+        rtlName: "قائمة الجدول",
+        icon: "content_paste",
+        component: TableList,
+        layout: "/admin",
+      },
+      {
+        path: "/laporan-tpp/bmn",
+        name: "Laporan BMN",
+        rtlName: "قائمة الجدول",
+        icon: "content_paste",
+        component: TableList,
+        layout: "/admin",
+      },
+      {
+        path: "/laporan-tpp/smt-bmn",
+        name: "Laporan Semester BMN",
+        rtlName: "قائمة الجدول",
+        icon: "content_paste",
+        component: TableList,
+        layout: "/admin",
+      },
+    ],
   },
   {
     path: "/laporan-harian-tps",
@@ -144,6 +246,16 @@ const dashboardRoutes = [
     icon: "content_paste",
     component: TableList,
     layout: "/admin",
+    chirdren: [
+      {
+        path: "/laporan-harian-tps/daftar",
+        name: "Daftar Laporan Harian",
+        rtlName: "قائمة الجدول",
+        icon: "content_paste",
+        component: TableList,
+        layout: "/admin",
+      },
+    ]
   },
   {
     path: "/scan-barcode-tpp",
@@ -152,14 +264,50 @@ const dashboardRoutes = [
     icon: "content_paste",
     component: TableList,
     layout: "/admin",
+    children: [
+      {
+        path: "/cek-barcode-tpp",
+        name: "Cek Barcode TPP",
+        rtlName: "قائمة الجدول",
+        icon: "content_paste",
+        component: TableList,
+        layout: "/admin",
+      },
+    ],
   },
   {
-    path: "/cek-barcode-tpp",
-    name: "Cek Barcode TPP",
-    rtlName: "قائمة الجدول",
-    icon: "content_paste",
-    component: TableList,
+    path: "/piranti",
+    name: "Piranti",
+    rtlName: "إخطارات",
+    icon: Notifications,
+    component: NotificationsPage,
     layout: "/admin",
+    children: [
+      {
+        path: "/piranti/tanda-tangan",
+        name: "Tanda Tangan",
+        rtlName: "إخطارات",
+        icon: Notifications,
+        component: NotificationsPage,
+        layout: "/admin",
+      },
+      {
+        path: "/piranti/manajemen-pengguna-bc",
+        name: "Manajemen pengguna BC",
+        rtlName: "إخطارات",
+        icon: Notifications,
+        component: NotificationsPage,
+        layout: "/admin",
+      },
+      {
+        path: "/piranti/manajemen-pengguna-tps",
+        name: "Manajemen Pengguna TPS",
+        rtlName: "إخطارات",
+        icon: Notifications,
+        component: NotificationsPage,
+        layout: "/admin",
+      },
+    ]
   },
   {
     path: "/maps",
@@ -169,14 +317,7 @@ const dashboardRoutes = [
     component: Maps,
     layout: "/admin",
   },
-  {
-    path: "/notifications",
-    name: "Notifications",
-    rtlName: "إخطارات",
-    icon: Notifications,
-    component: NotificationsPage,
-    layout: "/admin",
-  },
+
   {
     path: "/rtl-page",
     name: "RTL Support",
