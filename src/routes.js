@@ -47,19 +47,61 @@ const dashboardRoutes = [
   },
   {
     path: "/user",
-    name: "Buku Catatn Pabean (BCP)",
+    name: "Buku Catatan Pabean (BCP)",
     rtlName: "ملف تعريفي للمستخدم",
     icon: Person,
     component: UserProfile,
     layout: "/admin",
   },
   {
-    path: "/table",
+    path: "/btd",
     name: "BTD",
     rtlName: "قائمة الجدول",
     icon: "content_paste",
     component: TableList,
     layout: "/admin",
+    children: [
+      {
+        path: "/btd/tambah-btd",
+        name: "Tambah BTD",
+        rtlName: "قائمة الجدول",
+        icon: "content_paste",
+        component: TableList,
+        layout: "/admin",
+      },
+      {
+        path: "/btd/daftar-btd",
+        name: "Daftar BTD",
+        rtlName: "قائمة الجدول",
+        icon: "content_paste",
+        component: TableList,
+        layout: "/admin",
+      },
+      {
+        path: "/btd/penarikan-pencacahan",
+        name: "Penarikan & Pencacahan",
+        rtlName: "قائمة الجدول",
+        icon: "content_paste",
+        component: TableList,
+        layout: "/admin",
+      },
+      {
+        path: "/btd/tindak-lanjut",
+        name: "Tindak Lanjut BTD",
+        rtlName: "قائمة الجدول",
+        icon: "content_paste",
+        component: TableList,
+        layout: "/admin",
+      },
+      {
+        path: "/btd/penyelesaian",
+        name: "Penyelesaian BTD",
+        rtlName: "قائمة الجدول",
+        icon: "content_paste",
+        component: TableList,
+        layout: "/admin",
+      },
+    ],
   },
   {
     path: "/typography",
@@ -84,6 +126,16 @@ const dashboardRoutes = [
     icon: "content_paste",
     component: TableList,
     layout: "/admin",
+    children: [
+      {
+        path: "/laporan-tpp/kucing-kurus",
+        name: "kucing kurus",
+        rtlName: "قائمة الجدول",
+        icon: "content_paste",
+        component: TableList,
+        layout: "/admin",
+      },
+    ]
   },
   {
     path: "/laporan-harian-tps",
@@ -133,14 +185,14 @@ const dashboardRoutes = [
     component: RTLPage,
     layout: "/rtl",
   },
-  {
-    path: "/upgrade-to-pro",
-    name: "Upgrade To PRO",
-    rtlName: "التطور للاحترافية",
-    icon: Kucing,
-    component: UpgradeToPro,
-    layout: "/admin",
-  },
+  // {
+  //   path: "/upgrade-to-pro",
+  //   name: "Upgrade To PRO",
+  //   rtlName: "التطور للاحترافية",
+  //   icon: Kucing,
+  //   component: UpgradeToPro,
+  //   layout: "/admin",
+  // },
 ];
 
 export default dashboardRoutes;
