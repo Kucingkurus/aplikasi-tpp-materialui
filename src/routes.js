@@ -22,9 +22,8 @@ import LibraryBooks from "@material-ui/icons/LibraryBooks";
 import BubbleChart from "@material-ui/icons/BubbleChart";
 import LocationOn from "@material-ui/icons/LocationOn";
 import Notifications from "@material-ui/icons/Notifications";
-import Kucing from "@material-ui/icons/Unarchive";
+import Unarchive from "@material-ui/icons/Unarchive";
 import Language from "@material-ui/icons/Language";
-
 
 // core components/views for Admin layout
 import DashboardPage from "views/Dashboard/Dashboard.js";
@@ -54,6 +53,32 @@ const dashboardRoutes = [
     icon: Person,
     component: UserProfile,
     layout: "/admin",
+    children: [
+      {
+        path: "/bcp/btd",
+        name: "BCP - BTD",
+        rtlName: "قائمة الجدول",
+        icon: "Unarchive",
+        component: Typography,
+        layout: "/admin",
+      },
+      {
+        path: "/bcp/bdn",
+        name: "BCP - BDN",
+        rtlName: "قائمة الجدول",
+        icon: "content_paste",
+        component: TableList,
+        layout: "/admin",
+      },
+      {
+        path: "/bcp/bmn",
+        name: "BCP - BMN",
+        rtlName: "قائمة الجدول",
+        icon: "content_paste",
+        component: DashboardPage,
+        layout: "/admin",
+      },
+    ]
   },
   {
     path: "/btd",
@@ -134,7 +159,7 @@ const dashboardRoutes = [
         name: "Daftar BDN",
         rtlName: "طباعة",
         icon: LibraryBooks,
-        component: Kucing,
+        component: DashboardPage,
         layout: "/admin",
       },
       {
@@ -169,7 +194,7 @@ const dashboardRoutes = [
         component: Typography,
         layout: "/admin",
       },
-    ]
+    ],
   },
   {
     path: "/bmn",
@@ -255,7 +280,7 @@ const dashboardRoutes = [
         component: TableList,
         layout: "/admin",
       },
-    ]
+    ],
   },
   {
     path: "/scan-barcode-tpp",
@@ -270,7 +295,7 @@ const dashboardRoutes = [
         name: "Cek Barcode TPP",
         rtlName: "قائمة الجدول",
         icon: "content_paste",
-        component: TableList,
+        component: DashboardPage,
         layout: "/admin",
       },
     ],
@@ -307,7 +332,7 @@ const dashboardRoutes = [
         component: NotificationsPage,
         layout: "/admin",
       },
-    ]
+    ],
   },
   {
     path: "/maps",

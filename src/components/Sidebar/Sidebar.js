@@ -24,7 +24,6 @@ import { createComputedPropertyName } from "typescript";
 const useStyles = makeStyles(styles);
 
 export default function Sidebar(props) {
-  // console.log(props);
   const classes = useStyles();
   // verifies if routeName is the one active (in browser input)
   function activeRoute(routeName) {
@@ -32,7 +31,6 @@ export default function Sidebar(props) {
   }
   const { color, logo, image, logoText, routes } = props;
   const childrens = routes.children;
-  // console.log(routes);
 
   const [showChildren, setShowChildren] = useState({
     settings: [
@@ -76,8 +74,7 @@ export default function Sidebar(props) {
   var links = (data) => {
     return (
       <List className={classes.list}>
-        {routes.map((prop, key) => {
-          console.log(prop)
+        {data.map((prop, key) => {
           var activePro = " ";
           var listItemClasses;
           if (prop.path === "/upgrade-to-pro") {
@@ -136,7 +133,7 @@ export default function Sidebar(props) {
                 </ListItem>
               </NavLink>
             );
-          }
+          } else if(prop.children) {
           return (
             <List className={classes.list} key={key}>
               <ListItem
@@ -199,9 +196,6 @@ export default function Sidebar(props) {
                 unmountOnExit
               >
                 {prop.children.map((cProp, cKey) => {
-                  {
-                    /* console.log(cProp); */
-                  }
                   var activePro = " ";
                   var listItemClasses;
                   if (cProp.path === "/upgrade-to-pro") {
@@ -274,7 +268,7 @@ export default function Sidebar(props) {
                 })}
               </Collapse>
             </List>
-          );
+          )};
         })}
       </List>
     );

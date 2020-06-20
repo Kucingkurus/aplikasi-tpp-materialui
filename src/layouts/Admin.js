@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 // creates a beautiful scrollbar
@@ -5,6 +6,7 @@ import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
+
 // core components
 import Navbar from "components/Navbars/Navbar.js";
 import Footer from "components/Footer/Footer.js";
@@ -20,23 +22,38 @@ import logo from "assets/img/reactlogo.png";
 
 let ps;
 
-const switchRoutes = (
-  <Switch>
-    {routes.map((prop, key) => {
-      if (prop.layout === "/admin") {
-        return (
-          <Route
-            path={prop.layout + prop.path}
-            component={prop.component}
-            key={key}
-          />
-        );
-      }
-      return null;
-    })}
-    <Redirect from="/admin" to="/admin/dashboard" />
-  </Switch>
-);
+const allRoute = [];
+
+routes.map((rute) => {
+  if (!rute.children) {
+    allRoute.push(rute);
+  }
+  if (rute.children) {
+    rute.children.map((rute2) => {
+      allRoute.push(rute2);
+    });
+  }
+});
+
+const switchRoutes = (data) => {
+  return (
+    <Switch>
+      {data.map((prop, key) => {
+        if (prop.layout === "/admin") {
+          return (
+            <Route
+              path={prop.layout + prop.path}
+              component={prop.component}
+              key={key}
+            />
+          );
+        }
+        return null;
+      })}
+      <Redirect from="/admin" to="/admin/dashboard" />
+    </Switch>
+  );
+};
 
 const useStyles = makeStyles(styles);
 
@@ -113,23 +130,21 @@ export default function Admin({ ...rest }) {
         {/* On the /maps route we want the map to be on full screen - this is not possible if the content and conatiner classes are present because they have some paddings which would make the map smaller */}
         {getRoute() ? (
           <div className={classes.content}>
-            <div className={classes.container}>{switchRoutes}</div>
+            <div className={classes.container}>{switchRoutes(allRoute)}</div>
           </div>
         ) : (
-          <div className={classes.map}>{switchRoutes}</div>
+          <div className={classes.map}>{switchRoutes(allRoute)}</div>
         )}
         {getRoute() ? <Footer /> : null}
 
-        
-          <FixedPlugin
-            handleImageClick={handleImageClick}
-            handleColorClick={handleColorClick}
-            bgColor={color}
-            bgImage={image}
-            handleFixedClick={handleFixedClick}
-            fixedClasses={fixedClasses}
-          />
-        
+        <FixedPlugin
+          handleImageClick={handleImageClick}
+          handleColorClick={handleColorClick}
+          bgColor={color}
+          bgImage={image}
+          handleFixedClick={handleFixedClick}
+          fixedClasses={fixedClasses}
+        />
       </div>
     </div>
   );
