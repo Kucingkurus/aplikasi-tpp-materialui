@@ -43,11 +43,11 @@ export default function Footer(props) {
           <span>
             &copy; {1900 + new Date().getYear()}{" "}
             <a
-              href="https://www.creative-tim.com?ref=mdr-footer"
+              href="https://beacukai.go.id"
               target="_blank"
               className={classes.a}
             >
-              Creative Tim
+              KPPBC TMP C Kantor Pos Pasar Baru
             </a>
             , made with love for a better web
           </span>

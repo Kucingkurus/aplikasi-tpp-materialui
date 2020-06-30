@@ -33,7 +33,10 @@ import Typography from "views/Typography/Typography.js";
 import Icons from "views/Icons/Icons.js";
 import Maps from "views/Maps/Maps.js";
 import NotificationsPage from "views/Notifications/Notifications.js";
-// import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.js";
+import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.js";
+import TambahBTD from "views/BTD/TambahBTD"
+import DaftarBTD from "views/BTD/DaftarBTD"
+import PenarikanPencacahan from "views/BTD/PenarikanPencacahan"
 // core components/views for RTL layout
 import RTLPage from "views/RTLPage/RTLPage.js";
 
@@ -58,8 +61,8 @@ const dashboardRoutes = [
         path: "/bcp/btd",
         name: "BCP - BTD",
         rtlName: "قائمة الجدول",
-        icon: "Unarchive",
-        component: Typography,
+        icon: Unarchive,
+        component: UserProfile,
         layout: "/admin",
       },
       {
@@ -78,7 +81,7 @@ const dashboardRoutes = [
         component: DashboardPage,
         layout: "/admin",
       },
-    ]
+    ],
   },
   {
     path: "/btd",
@@ -93,7 +96,7 @@ const dashboardRoutes = [
         name: "Tambah BTD",
         rtlName: "قائمة الجدول",
         icon: "content_paste",
-        component: TableList,
+        component: TambahBTD,
         layout: "/admin",
       },
       {
@@ -101,7 +104,7 @@ const dashboardRoutes = [
         name: "Daftar BTD",
         rtlName: "قائمة الجدول",
         icon: "content_paste",
-        component: TableList,
+        component: DaftarBTD,
         layout: "/admin",
       },
       {
@@ -109,7 +112,7 @@ const dashboardRoutes = [
         name: "Penarikan & Pencacahan",
         rtlName: "قائمة الجدول",
         icon: "content_paste",
-        component: TableList,
+        component: PenarikanPencacahan,
         layout: "/admin",
       },
       {
@@ -355,7 +358,7 @@ const dashboardRoutes = [
   //   path: "/upgrade-to-pro",
   //   name: "Upgrade To PRO",
   //   rtlName: "التطور للاحترافية",
-  //   icon: Kucing,
+  //   icon: Unarchive,
   //   component: UpgradeToPro,
   //   layout: "/admin",
   // },
